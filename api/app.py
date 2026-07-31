@@ -25,7 +25,8 @@ app = Flask(__name__)
 CORS(app, origins=[
     "https://personal-production-1a7c.up.railway.app",
     "https://personal-production-1a7c.up.railway.app/",
-    "https://www.christian-ortega.website/"
+    "https://www.christian-ortega.website",
+    "christian-ortega.website"
 ])
 
 # Initialize FastMCP Server
