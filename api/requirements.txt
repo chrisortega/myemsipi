@@ -12,6 +12,8 @@ httpx
 uvicorn[standard]
 python-multipart
 flask
+gunicorn
+python-dotenv
 
 # LLMs
 anthropic
