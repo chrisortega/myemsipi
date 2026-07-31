@@ -10,6 +10,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 import os
 from pathlib import Path
+from flask_cors import CORS
 
 # Load environment variables from .env file using absolute path
 dotenv_path = Path(__file__).parent / ".env"
@@ -20,6 +21,11 @@ logging.getLogger("uvicorn.error").setLevel(logging.WARNING)
 
 # Initialize Flask app
 app = Flask(__name__)
+
+CORS(app, origins=[
+    "https://personal-production-1a7c.up.railway.app",
+    "https://personal-production-1a7c.up.railway.app/"
+])
 
 # Initialize FastMCP Server
 mcp = FastMCP("myemssip")
