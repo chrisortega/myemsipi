@@ -26,7 +26,8 @@ CORS(app, origins=[
     "https://personal-production-1a7c.up.railway.app",
     "https://personal-production-1a7c.up.railway.app/",
     "https://www.christian-ortega.website",
-    "christian-ortega.website"
+    "christian-ortega.website",
+    "http://localhost:5173"
 ])
 
 # Initialize FastMCP Server
@@ -64,7 +65,7 @@ def api_chat():
         
         # 2. Query Anthropic (non-streaming for simplicity in JSON APIs)
         response = ai_client.messages.create(
-            model="claude-sonnet-5",
+            model=os.environ.get("ANTHROPIC_MODEL"),
             max_tokens=1000,
             system=f"Answer questions as if you were the candidate with the resume in the context file provided, like someone is interviewing you. Do not mention that you are an AI or LLM. Here is the context:\n\n{context_text}",
             messages=messages
