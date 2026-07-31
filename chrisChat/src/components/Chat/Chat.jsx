@@ -4,7 +4,7 @@ import "./Chat.css";
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
-
+    const API_URL = import.meta.env.VITE_API_URL;
     const handleChat = async () => {
         if (!input.trim()) return;
 
@@ -14,7 +14,7 @@ function Chat() {
         setInput("");
 
         try {
-            const response = await fetch("api/chat", {
+            const response = await fetch(API_URL + "api/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
