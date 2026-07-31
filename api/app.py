@@ -24,7 +24,8 @@ app = Flask(__name__)
 
 CORS(app, origins=[
     "https://personal-production-1a7c.up.railway.app",
-    "https://personal-production-1a7c.up.railway.app/"
+    "https://personal-production-1a7c.up.railway.app/",
+    "https://www.christian-ortega.website/"
 ])
 
 # Initialize FastMCP Server
@@ -45,7 +46,7 @@ ai_client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 def api_chat():
     if os.getenv("LLM_ON") != "True":
         data = request.json
-        messages = data.get("messages", [{"role": "assistant", "content": "LLM is off no responses available"}])         
+        messages = data.get("messages", [{"role": "assistant", "content": "Hey i am off, LLM are expensive, request a demo at 6461881334"}])         
         return jsonify({"response": messages[-1]["content"]})
 
     data = request.json
