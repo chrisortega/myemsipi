@@ -58,7 +58,7 @@ def api_chat():
     data = request.json
     messages = data.get("messages", [])          # List of past messages: [{"role": "user", "content": "..."}]
     file_path = data.get("file_path", "sources/text.txt")
-    
+    tone = data.get("tone")
     try:
         # 1. Read document context using the read_txt tool
         context_text = read_txt(file_path)
@@ -67,7 +67,7 @@ def api_chat():
         response = ai_client.messages.create(
             model=os.environ.get("ANTHROPIC_MODEL"),
             max_tokens=1000,
-            system=f"Answer questions as if you were the candidate with the resume in the context file provided, like someone is interviewing you. Do not mention that you are an AI or LLM. Here is the context:\n\n{context_text}",
+            system=f"Answer questions as if you were the candidate with the resume in the context file provided, the tone depends on this value: {tone}, 100 extremely  professional, 0 very casual like a surfer talks, like someone is interviewing you. Do not mention that you are an AI or LLM. Here is the context:\n\n{context_text}",
             messages=messages
         )
         
