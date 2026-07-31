@@ -97,5 +97,5 @@ if __name__ == "__main__":
     mcp_thread.start()
 
     # Run the Flask API Server
-    print("[Server] Starting Flask API on http://localhost:5000...")
-    app.run(host="0.0.0.0", port=5000, debug=True, use_reloader=False)
+    print("[Server] Starting Flask API on http://localhost:3000...")
+    app.run(host="0.0.0.0", port=3000, debug=True, use_reloader=False)
