@@ -1,0 +1,121 @@
+/* Windows 95 Color Palette & Font */
+body {
+    background-color: #008080;
+    /* Classic Teal background */
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Container wrappers for the Windows 95 "Window" effect */
+.chat-box,
+.response-box {
+    background-color: #c0c0c0;
+    padding: 10px;
+    margin: 15px auto;
+    max-width: 500px;
+
+    /* Classic 3D Light-Gray Bevel Outset */
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 1px 1px 0px 0px #000000;
+}
+
+/* Window Title Bar */
+.chat-box h1 {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    /* Dark Blue Gradient */
+    color: white;
+    margin: -10px -10px 10px -10px;
+    padding: 4px 6px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Textarea / Input Fields (Classic Inset Bevel) */
+.chat-box textarea {
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: inherit;
+    padding: 4px;
+    resize: none;
+
+    /* 3D Inset Border */
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Focus state for input */
+.chat-box textarea:focus {
+    outline: none;
+}
+
+/* Windows 95 Command Button */
+.chat-box button {
+    margin-top: 8px;
+    background-color: #c0c0c0;
+    color: #000000;
+    font-family: inherit;
+    padding: 4px 15px;
+    cursor: pointer;
+
+    /* Button Outset Bevel */
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+}
+
+/* Button Active / Pressed State */
+.chat-box button:active {
+    /* Invert borders to make it look pressed */
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 5px 14px 3px 16px;
+    /* Shifts text slightly down-right */
+}
+
+/* Message History Container */
+.response-box {
+    max-height: 300px;
+    overflow-y: scroll;
+    /* Inset box for content listing */
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    background-color: #ffffff;
+}
+
+/* Individual Message Row */
+.response-box div {
+    padding: 4px;
+    border-bottom: 1px dashed #c0c0c0;
+    color: #000000;
+}
+
+/* Scrollbar Tweaks for Retro Feel */
+.response-box::-webkit-scrollbar {
+    width: 16px;
+}
+
+.response-box::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+.response-box::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+}
