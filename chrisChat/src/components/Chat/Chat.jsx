@@ -1,10 +1,15 @@
 import { useState } from "react";
-import useFetcher from "../../hooks/useFetcher";
+
 import "./Chat.css";
+import Slider from "../Slider/Slider";
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
+    const [tone, setTone] = useState(50)
     const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000/";
+    const handleValue = (value) => {
+        setTone(value);
+    }
     const handleChat = async () => {
         if (!input.trim()) return;
 
@@ -21,6 +26,7 @@ function Chat() {
                 },
                 body: JSON.stringify({
                     messages: updatedMessages,
+                    tone: tone,
                 }),
             });
             const data = await response.json();
@@ -31,6 +37,7 @@ function Chat() {
     }
     return (
         <>
+
             <div className="chat-box">
                 <h1>Chat with me</h1>
                 <textarea placeholder="Chat with me" value={input} onChange={(e) => setInput(e.target.value)}></textarea>
@@ -43,7 +50,10 @@ function Chat() {
                         <span>{msg.content}</span>
                     </div>
                 ))}
+                <Slider handleValue={handleValue} />
             </div>
+
+
         </>
     )
 }
