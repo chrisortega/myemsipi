@@ -1,0 +1,17 @@
+# --- Core Protocol & Framework ---
+mcp[cli]<2.0.0
+fastmcp
+
+# --- Utilities & Data Validation ---
+pypdf
+pydantic-settings
+
+# --- Databases & API ---
+supabase
+httpx
+uvicorn[standard]
+python-multipart
+flask
+
+# LLMs
+anthropic
