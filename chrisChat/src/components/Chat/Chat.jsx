@@ -4,7 +4,7 @@ import "./Chat.css";
 function Chat() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000/";
     const handleChat = async () => {
         if (!input.trim()) return;
 
@@ -39,7 +39,7 @@ function Chat() {
             <div className="response-box">
                 {messages.map((msg, idx) => (
                     <div key={idx}>
-                        <strong>{msg.role === "user" ? "You: " : "AI: "}</strong>
+                        <strong>{msg.role === "user" ? "You: " : "Chris: "}</strong>
                         <span>{msg.content}</span>
                     </div>
                 ))}
