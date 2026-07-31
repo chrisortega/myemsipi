@@ -45,10 +45,14 @@ def read_txt(file_path: str) -> str:
 ai_client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
-    if os.getenv("LLM_ON") != "True":
-        data = request.json
-        messages = data.get("messages", [{"role": "assistant", "content": "Hey i am off, LLM are expensive, request a demo at 6461881334"}])         
-        return jsonify({"response": messages[-1]["content"]})
+    if os.environ.get("LLM_ON") != "True":
+        
+        mimic_response = (
+            "Hi there! Thanks for reaching out. I'm currently offline to save on API credits "
+            "since running LLMs 24/7 gets quite expensive! However, I'd love to chat and show you "
+            "a full live demo. Please give me a call or text at 646-188-1334 so we can set that up!"
+        )
+        return jsonify({"response": mimic_response})
 
     data = request.json
     messages = data.get("messages", [])          # List of past messages: [{"role": "user", "content": "..."}]
