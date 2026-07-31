@@ -37,6 +37,11 @@ def read_txt(file_path: str) -> str:
 ai_client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
+    if os.getenv("LLM_ON") != "True":
+        data = request.json
+        messages = data.get("messages", [{"role": "assistant", "content": "LLM id off no responses available"}])         
+        return jsonify({"response": messages[-1]["content"]})
+        
     data = request.json
     messages = data.get("messages", [])          # List of past messages: [{"role": "user", "content": "..."}]
     file_path = data.get("file_path", "sources/text.txt")
