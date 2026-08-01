@@ -75,9 +75,13 @@ def api_chat():
             block.text for block in response.content if getattr(block, "type", None) == "text"
         )
         return jsonify({"response": assistant_response})
+
         
     except Exception as e:
+        if "401" in str(e) or "429" in str(e) or "403" in str(e):
+            return jsonify({"response": "I'm out of credits! Call Chris at 646-188-1334 for a demo"}), 509
         return jsonify({"error": str(e)}), 500
+    
 
 # --- SSE Setup for MCP ---
 
